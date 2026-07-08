@@ -5,10 +5,6 @@ on:
   pull_request:
     branches: [ main, master ]
 
-permissions:
-  contents: write
-  pages: write
-  id-token: write
 
 jobs:
   test:
@@ -32,10 +28,4 @@ jobs:
         path: playwright-report/
         retention-days: 30
 
-    - name: Deploy report to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
-      if: ${{ !cancelled() }}
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./playwright-report
-        publish_branch: gh-pages
+
