@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('test bmi calculator (metric)', async ({ page }) => {
   await page.goto('https://www.calculator.net/bmi-calculator.html');
+  await page.getByText('Metric Units', { exact: true }).click();
   await page.locator('#cage').click();
   await page.locator('#cage').click();
   await page.locator('#cage').fill('22');
